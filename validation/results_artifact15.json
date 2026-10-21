@@ -1,0 +1,192 @@
+{
+  "records_used": [
+    "100",
+    "101",
+    "103",
+    "105",
+    "106",
+    "107",
+    "108",
+    "109",
+    "111",
+    "112",
+    "113",
+    "115",
+    "116",
+    "117",
+    "118",
+    "119",
+    "121",
+    "122",
+    "123",
+    "124",
+    "200",
+    "201",
+    "202",
+    "203",
+    "205",
+    "207",
+    "208",
+    "209",
+    "210"
+  ],
+  "trials_per_fault": 580,
+  "artifact_bpm": 15.0,
+  "detection_rate": {
+    "stale": 1.0,
+    "sparse": 1.0,
+    "noisy": 0.633
+  },
+  "false_positive_rate_on_clean": {
+    "stale": 0.0,
+    "sparse": 0.0,
+    "noisy": 0.241
+  },
+  "per_record": [
+    {
+      "record": "100",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "101",
+      "minutes": 31,
+      "clean_tags": "noisy"
+    },
+    {
+      "record": "103",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "105",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "106",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "107",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "108",
+      "minutes": 31,
+      "clean_tags": "noisy"
+    },
+    {
+      "record": "109",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "111",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "112",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "113",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "115",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "116",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "117",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "118",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "119",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "121",
+      "minutes": 31,
+      "clean_tags": "noisy"
+    },
+    {
+      "record": "122",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "123",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "124",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "200",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "201",
+      "minutes": 31,
+      "clean_tags": "noisy"
+    },
+    {
+      "record": "202",
+      "minutes": 31,
+      "clean_tags": "noisy"
+    },
+    {
+      "record": "203",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "205",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "207",
+      "minutes": 30,
+      "clean_tags": "noisy"
+    },
+    {
+      "record": "208",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    },
+    {
+      "record": "209",
+      "minutes": 31,
+      "clean_tags": "noisy"
+    },
+    {
+      "record": "210",
+      "minutes": 31,
+      "clean_tags": "reliable"
+    }
+  ]
+}

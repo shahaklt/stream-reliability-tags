@@ -27,4 +27,4 @@ Input: CSV with `stream,timestamp,value`. Use `--now` for reproducible output. P
 - Reliability is about data quality, not clinical meaning. Nothing here is a diagnosis or a medical-device check, and it should never be presented as one.
 - The thresholds are defaults you should set per stream.
 - Outlier detection is a robust screen. Real artifacts (motion, sensor drift) need their own handling.
-- Built and tested on synthetic streams only.
+- Validated on MIT-BIH heart-rate streams with injected faults, not on wearable sensor data. The `noisy` tag false-positives on real arrhythmic records (24% of records). See `validation/README.md`.
