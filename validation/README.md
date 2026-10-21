@@ -45,3 +45,18 @@ Raw output: `results_artifact100.json`, `results_artifact15.json`.
 ## Suggested next step
 
 Separate sensor artifacts from physiology before trusting the `noisy` tag. For example, flag only values that are physiologically impossible or that jump without a matching change in the other channels.
+
+## Tuning attempt: rolling-median rule (dev/test split)
+
+Goal: cut the noisy-tag false positives on real records without losing artifact detection.
+
+Method: records sorted by ID, alternating into dev (14) and test (15) sets. On dev only, I searched a grid of rolling-median rules (window 5, 11, 21 samples; threshold 10–40 bpm) and picked the rule with the highest +15 bpm detection subject to dev clean false positives ≤ 10%. Then I scored the choice once on test. Script: `validation/tune_noisy.py`. Full output: `tuning_results.json`.
+
+Selected on dev: rolling window 5, threshold 15 bpm.
+
+| Rule | Test: detection, +100 bpm | Test: detection, +15 bpm | Test: false positives on clean |
+|---|---|---|---|
+| MAD (current default) | 1.00 | 0.68 | 0.29 |
+| rolling, window 5, 15 bpm (selected on dev) | 0.99 | 0.46 | 0.29 |
+
+**Result: no improvement.** The dev-selected rule matched the baseline false-positive rate on test and detected fewer subtle artifacts. The rolling rule trades one failure for another: thresholds that suppress arrhythmia false positives also miss small spikes, and the dev set is too small (14 records, so each record moves the rate by about 7 points) to pick a threshold that holds on new records. The default stays MAD. The `noisy` tag should be treated as unvalidated on real physiology.

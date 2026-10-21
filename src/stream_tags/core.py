@@ -16,8 +16,16 @@ def load_streams(path):
 
 
 def tag_streams(df, now, expected_interval_s=60.0, window_hours=24.0, intervals=None,
-                stale_factor=2.0, min_coverage=0.5, outlier_k=5.0, max_outlier_frac=0.05):
-    """One row per stream. `intervals` maps stream name to its expected spacing in seconds."""
+                stale_factor=2.0, min_coverage=0.5, outlier_k=5.0, max_outlier_frac=0.05,
+                outlier_method="mad", rolling_window=11, rolling_bpm=30.0):
+    """One row per stream. `intervals` maps stream name to its expected spacing in seconds.
+
+    outlier_method:
+      "mad"     - value differs from the window median by more than outlier_k robust sigmas.
+      "rolling" - value differs from its centered rolling median (rolling_window samples) by
+                  more than rolling_bpm. Tolerates sustained physiological shifts; still catches
+                  isolated spikes.
+    """
     now = pd.Timestamp(now, tz="UTC") if pd.Timestamp(now).tzinfo is None else pd.Timestamp(now)
     window_start = now - pd.Timedelta(hours=window_hours)
     intervals = intervals or {}
@@ -38,9 +46,15 @@ def tag_streams(df, now, expected_interval_s=60.0, window_hours=24.0, intervals=
         outlier_frac = np.nan
         if n >= 3:
             vals = win["value"].to_numpy(dtype=float)
-            med = np.median(vals)
-            mad = 1.4826 * np.median(np.abs(vals - med))
-            outlier_frac = float(np.mean(np.abs(vals - med) > outlier_k * mad)) if mad > 0 else 0.0
+            if outlier_method == "rolling":
+                local = win["value"].rolling(rolling_window, center=True, min_periods=1).median().to_numpy()
+                outlier_frac = float(np.mean(np.abs(vals - local) > rolling_bpm))
+            elif outlier_method == "mad":
+                med = np.median(vals)
+                mad = 1.4826 * np.median(np.abs(vals - med))
+                outlier_frac = float(np.mean(np.abs(vals - med) > outlier_k * mad)) if mad > 0 else 0.0
+            else:
+                raise ValueError(f"unknown outlier_method: {outlier_method!r}")
 
         tags = []
         if age_s > stale_factor * interval:

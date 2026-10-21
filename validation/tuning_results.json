@@ -1,0 +1,133 @@
+{
+  "dev_records": [
+    "100",
+    "103",
+    "106",
+    "108",
+    "111",
+    "113",
+    "116",
+    "118",
+    "121",
+    "123",
+    "200",
+    "202",
+    "205",
+    "208",
+    "210"
+  ],
+  "test_records": [
+    "101",
+    "105",
+    "107",
+    "109",
+    "112",
+    "115",
+    "117",
+    "119",
+    "122",
+    "124",
+    "201",
+    "203",
+    "207",
+    "209"
+  ],
+  "fp_limit": 0.1,
+  "selection": "max dev detection at +15 bpm subject to dev clean FP <= limit",
+  "chosen": "rolling_w5_bpm15",
+  "chosen_kwargs": {
+    "outlier_method": "rolling",
+    "rolling_bpm": 15.0,
+    "rolling_window": 5
+  },
+  "dev_grid": {
+    "mad": {
+      "dev_fp_clean": 0.2,
+      "dev_detect_15bpm": 0.597
+    },
+    "rolling_w5_bpm10": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.947
+    },
+    "rolling_w5_bpm15": {
+      "dev_fp_clean": 0.067,
+      "dev_detect_15bpm": 0.253
+    },
+    "rolling_w5_bpm20": {
+      "dev_fp_clean": 0.067,
+      "dev_detect_15bpm": 0.087
+    },
+    "rolling_w5_bpm25": {
+      "dev_fp_clean": 0.067,
+      "dev_detect_15bpm": 0.067
+    },
+    "rolling_w5_bpm30": {
+      "dev_fp_clean": 0.067,
+      "dev_detect_15bpm": 0.067
+    },
+    "rolling_w5_bpm40": {
+      "dev_fp_clean": 0.0,
+      "dev_detect_15bpm": 0.017
+    },
+    "rolling_w11_bpm10": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.97
+    },
+    "rolling_w11_bpm15": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.403
+    },
+    "rolling_w11_bpm20": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.14
+    },
+    "rolling_w11_bpm25": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.13
+    },
+    "rolling_w11_bpm30": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.13
+    },
+    "rolling_w11_bpm40": {
+      "dev_fp_clean": 0.067,
+      "dev_detect_15bpm": 0.033
+    },
+    "rolling_w21_bpm10": {
+      "dev_fp_clean": 0.267,
+      "dev_detect_15bpm": 0.98
+    },
+    "rolling_w21_bpm15": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.437
+    },
+    "rolling_w21_bpm20": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.153
+    },
+    "rolling_w21_bpm25": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.133
+    },
+    "rolling_w21_bpm30": {
+      "dev_fp_clean": 0.133,
+      "dev_detect_15bpm": 0.133
+    },
+    "rolling_w21_bpm40": {
+      "dev_fp_clean": 0.067,
+      "dev_detect_15bpm": 0.083
+    }
+  },
+  "test_results": {
+    "mad (baseline)": {
+      "detect_noisy_100bpm": 1.0,
+      "fp_clean": 0.286,
+      "detect_noisy_15bpm": 0.675
+    },
+    "rolling_w5_bpm15": {
+      "detect_noisy_100bpm": 0.993,
+      "fp_clean": 0.286,
+      "detect_noisy_15bpm": 0.457
+    }
+  }
+}
